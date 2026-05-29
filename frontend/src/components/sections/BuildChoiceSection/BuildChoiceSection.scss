@@ -1,0 +1,44 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.build-choice {
+  padding: 6rem 0;
+  background: $surface;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    @include respond-to('mobile') { grid-template-columns: 1fr; }
+  }
+
+  &__card {
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: $radius-lg;
+    background: $background;
+    transition: all $transition-smooth;
+    cursor: pointer;
+
+    &:hover {
+      background: $primary;
+      color: $surface;
+      transform: translateY(-5px);
+      box-shadow: $shadow-lg;
+
+      h3, p { color: $surface; }
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: $text-dark;
+      transition: color $transition-fast;
+    }
+
+    p {
+      color: $text-light;
+      transition: color $transition-fast;
+    }
+  }
+}

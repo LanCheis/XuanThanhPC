@@ -1,0 +1,67 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  @include flex-center;
+  animation: fadeIn $transition-smooth;
+}
+
+.modal-content {
+  background: $surface;
+  padding: 3rem;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  animation: slideUp $transition-smooth;
+
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    @include respond-to('mobile') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  button.option-card {
+    padding: 2rem;
+    border-radius: $radius-md;
+    border: 2px solid transparent;
+    transition: all $transition-smooth;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $surface;
+
+    &.primary {
+      background: $primary;
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-glow;
+      }
+    }
+
+    &.secondary {
+      background: $secondary;
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(30, 136, 229, 0.4);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }

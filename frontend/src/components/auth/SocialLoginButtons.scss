@@ -1,0 +1,61 @@
+@import '../../styles/auth/variables';
+@import '../../styles/auth/mixins';
+
+.social-login {
+  margin-top: 2rem;
+
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid $auth-border;
+    }
+
+    span {
+      padding: 0 1rem;
+      color: $auth-muted;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  }
+
+  .social-buttons {
+    display: flex;
+    gap: 1rem;
+
+    .btn-social {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid $auth-border;
+      border-radius: $auth-radius-md;
+      background: $auth-surface;
+      color: $auth-text;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all $auth-transition-fast;
+
+      &:hover {
+        background: #F9FAFB;
+        border-color: #D1D5DB;
+        box-shadow: $auth-shadow-sm;
+      }
+    }
+  }
+}
+
+@include auth-respond-to('mobile') {
+  .social-buttons {
+    flex-direction: column;
+  }
+}

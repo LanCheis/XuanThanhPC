@@ -1,0 +1,194 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: $surface;
+
+  // Background layers
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__background-image {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: url('https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.05);
+    transition: transform 20s ease-out;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+  }
+
+  &__gradient-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(31, 169, 113, 0.15) 0%, transparent 60%);
+    animation: pulseGradient 8s infinite alternate ease-in-out;
+  }
+
+  // Content styling
+  &__container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  &__content {
+    max-width: 800px;
+    padding-top: 5rem;
+    
+    // Initial animation state
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(31, 169, 113, 0.3);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+
+    &-dot {
+      width: 8px;
+      height: 8px;
+      background: #1FA971;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(31, 169, 113, 0.8);
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+
+    &-main {
+      color: #ffffff;
+    }
+
+    &-accent {
+      background: linear-gradient(90deg, #19C37D, #1FA971);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 20px rgba(31, 169, 113, 0.2));
+    }
+  }
+
+  &__description {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 3rem;
+    max-width: 600px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    @include respond-to('mobile') {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: $radius-md;
+      font-weight: 600;
+      font-size: 1.125rem;
+      transition: all $transition-smooth;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #19C37D 0%, #1FA971 100%);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 15px rgba(31, 169, 113, 0.3);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(31, 169, 113, 0.4);
+      }
+      
+      svg {
+        transition: transform $transition-fast;
+      }
+      
+      &:hover svg {
+        transform: translateX(4px);
+      }
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  // Animation Loaded State
+  &--loaded {
+    .hero__background-image {
+      transform: scale(1);
+    }
+    .hero__content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Keyframes
+@keyframes pulseGradient {
+  0% { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.1); }
+}

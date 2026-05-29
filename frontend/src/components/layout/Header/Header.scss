@@ -1,0 +1,83 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1.25rem 0;
+  transition: all $transition-smooth;
+  background-color: #ffffff;
+
+  &.scrolled {
+    @include glass-effect;
+    padding: 0.75rem 0;
+    box-shadow: $shadow-sm;
+  }
+
+  &__content {
+    @include flex-between;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $primary;
+
+    span {
+      color: $text-dark;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 2rem;
+
+    @include respond-to('tablet') {
+      display: none;
+    }
+
+    a {
+      font-weight: 600;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    .btn-login {
+      font-weight: 600;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    .btn-register {
+      background: $primary;
+      color: $surface;
+      padding: 0.5rem 1.25rem;
+      border-radius: $radius-sm;
+      font-weight: 600;
+      transition: all $transition-fast;
+
+      &:hover {
+        background: $primary-hover;
+        box-shadow: $shadow-glow;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.components {
+  padding: 6rem 0;
+  background: $background;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  &__item {
+    background: $surface;
+    padding: 2rem;
+    border-radius: $radius-md;
+    text-align: center;
+    border: 1px solid $border;
+    transition: all $transition-fast;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $secondary;
+      box-shadow: $shadow-md;
+      transform: translateY(-5px);
+      color: $secondary;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+}

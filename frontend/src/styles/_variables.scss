@@ -1,0 +1,27 @@
+$primary: #1FA971;
+$primary-hover: #178a5b;
+$secondary: #1E88E5;
+$secondary-hover: #1565C0;
+$background: #F4FBFC;
+$surface: #FFFFFF;
+$text-dark: #181818;
+$text-light: #6b7280;
+$border: #e5e7eb;
+
+$font-main: 'Inter', sans-serif;
+
+$shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+$shadow-md: 0 4px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.08);
+$shadow-lg: 0 10px 15px rgba(0,0,0,0.05), 0 4px 6px rgba(0,0,0,0.03);
+$shadow-glow: 0 0 20px rgba(31, 169, 113, 0.4);
+
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 20px;
+
+$transition-fast: 0.2s ease-in-out;
+$transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+$bp-mobile: 576px;
+$bp-tablet: 768px;
+$bp-laptop: 992px;

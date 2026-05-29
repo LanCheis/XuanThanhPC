@@ -1,0 +1,55 @@
+@import '../../styles/auth/variables';
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $auth-dark;
+  }
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      color: $auth-muted;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 1px solid $auth-border;
+      border-radius: $auth-radius-md;
+      font-size: 1rem;
+      color: $auth-text;
+      background: $auth-surface;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+
+      &.with-icon {
+        padding-left: 2.75rem;
+      }
+
+      &::placeholder {
+        color: #9CA3AF;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $auth-primary;
+        box-shadow: 0 0 0 4px rgba($auth-primary, 0.1);
+      }
+    }
+  }
+}

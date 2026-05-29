@@ -1,0 +1,179 @@
+@import '../../styles/auth/variables';
+@import '../../styles/auth/mixins';
+@import '../../styles/auth/animations';
+
+.premium-auth-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: $auth-bg;
+  overflow: hidden;
+
+  .auth-left-panel {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    color: $auth-dark;
+    background: #FFFFFF;
+    overflow: hidden;
+
+    .brand-content {
+      position: relative;
+      z-index: 10;
+      max-width: 400px;
+      animation: authFadeIn 1s ease-out;
+
+      .logo-placeholder {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, $auth-primary, $auth-secondary);
+        border-radius: $auth-radius-md;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 800;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 8px 16px rgba($auth-primary, 0.3);
+      }
+
+      .brand-heading {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+        @include auth-gradient-text;
+      }
+
+      .brand-subtext {
+        font-size: 1.25rem;
+        color: $auth-muted;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .auth-right-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: $auth-bg;
+    
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      animation: authFadeIn 0.8s ease-out 0.2s both;
+      @include auth-glassmorphism;
+      padding: 3rem;
+      border-radius: $auth-radius-xl;
+
+      .auth-header {
+        margin-bottom: 2rem;
+
+        .auth-title {
+          font-size: 2rem;
+          font-weight: 700;
+          color: $auth-dark;
+          margin-bottom: 0.5rem;
+        }
+
+        .auth-subtitle {
+          color: $auth-muted;
+          font-size: 1rem;
+        }
+      }
+
+      .auth-form {
+        display: flex;
+        flex-direction: column;
+
+        .btn-submit {
+          width: 100%;
+          padding: 1rem;
+          margin-top: 1rem;
+          background: linear-gradient(135deg, $auth-primary, #15a569);
+          color: white;
+          border: none;
+          border-radius: $auth-radius-md;
+          font-size: 1.125rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all $auth-transition-normal;
+          box-shadow: 0 4px 12px rgba($auth-primary, 0.3);
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba($auth-primary, 0.4);
+          }
+
+          &:active {
+            transform: translateY(0);
+          }
+        }
+      }
+      
+      .auth-links {
+        margin-top: 1.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: $auth-muted;
+
+        a {
+          color: $auth-primary;
+          font-weight: 600;
+          text-decoration: none;
+          margin-left: 0.25rem;
+          transition: color $auth-transition-fast;
+
+          &:hover {
+            color: $auth-secondary;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsive Rules */
+@include auth-respond-to('tablet') {
+  .premium-auth-container {
+    .auth-left-panel {
+      padding: 2rem;
+      .brand-heading {
+        font-size: 2.5rem;
+      }
+    }
+    .auth-right-panel .auth-card {
+      padding: 2rem;
+    }
+  }
+}
+
+@include auth-respond-to('mobile') {
+  .premium-auth-container {
+    flex-direction: column;
+    
+    .auth-left-panel {
+      display: none; // Hide on mobile for focus on form
+    }
+    
+    .auth-right-panel {
+      padding: 1rem;
+      .auth-card {
+        padding: 1.5rem;
+        box-shadow: none;
+        background: transparent;
+        border: none;
+      }
+    }
+  }
+}
