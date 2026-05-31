@@ -1,0 +1,80 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.contact-form {
+    background: $eco-surface;
+    padding: $eco-space-2xl;
+    border-radius: $eco-radius-lg;
+    box-shadow: $eco-shadow-soft;
+    border: 1px solid $eco-border;
+
+    &__row {
+        display: flex;
+        gap: $eco-space-lg;
+        
+        @include responsive-mobile {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .contact-form__group {
+            flex: 1;
+        }
+    }
+
+    &__group {
+        margin-bottom: $eco-space-lg;
+
+        label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: $eco-dark;
+            margin-bottom: $eco-space-sm;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: $eco-radius-md;
+            border: 1px solid $eco-border;
+            background: $eco-background;
+            font-family: inherit;
+            font-size: 1rem;
+            color: $eco-text;
+            transition: $eco-transition-fast;
+
+            &:focus {
+                outline: none;
+                border-color: $eco-primary;
+                box-shadow: 0 0 0 4px rgba(25, 195, 125, 0.1);
+                background: $eco-surface;
+            }
+
+            &::placeholder {
+                color: $eco-muted;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+    }
+
+    button {
+        width: 100%;
+        margin-top: $eco-space-md;
+    }
+
+    &__success {
+        margin-top: $eco-space-md;
+        padding: $eco-space-md;
+        background: rgba(25, 195, 125, 0.1);
+        color: darken(#19C37D, 10%);
+        border-radius: $eco-radius-md;
+        text-align: center;
+        font-weight: 500;
+        animation: ecoFadeIn 0.3s ease-out;
+    }
+}

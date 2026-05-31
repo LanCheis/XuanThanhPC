@@ -15,10 +15,10 @@ const Header = () => {
         <Link to="/" className="header__logo" style={{ textDecoration: 'none' }}>XT<span>PC</span></Link>
         <nav className="header__nav">
           <Link to="/">Trang chủ</Link>
-          <a href="#">Build PC</a>
-          <a href="#">Linh kiện</a>
-          <a href="#">Gaming PC</a>
-          <a href="#">Liên hệ</a>
+          <Link to="/build-pc">Build PC</Link>
+          <Link to="/linh-kien-pc">Linh kiện</Link>
+          <Link to="/gaming">Gaming PC</Link>
+          <Link to="/lien-he">Liên hệ</Link>
         </nav>
         <div className="header__actions">
           {user ? (

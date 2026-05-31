@@ -1,0 +1,68 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.contact-page {
+    padding-bottom: $eco-space-3xl;
+
+    &__hero {
+        background: linear-gradient(135deg, $eco-dark 0%, #1E88E5 100%);
+        padding: $eco-space-3xl 0;
+        text-align: center;
+        margin-bottom: -60px; // Pull content up
+        position: relative;
+        padding-bottom: calc(#{$eco-space-3xl} + 80px);
+
+        .eco-section-title::after {
+            background: white;
+        }
+    }
+
+    &__subtitle {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+    }
+
+    &__socials {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $eco-space-lg;
+        position: relative;
+        z-index: 10;
+        margin-bottom: $eco-space-3xl;
+
+        @include responsive-tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include responsive-mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__main {
+        display: flex;
+        gap: $eco-space-2xl;
+
+        @include responsive-tablet {
+            flex-direction: column;
+        }
+    }
+
+    &__form-wrapper {
+        flex: 3;
+        
+        .eco-section-title::after {
+            left: 0;
+            transform: none;
+        }
+    }
+
+    &__info-wrapper {
+        flex: 2;
+        padding-top: calc(1.5rem + #{$eco-space-xl}); // Align with form below title
+        
+        @include responsive-tablet {
+            padding-top: 0;
+        }
+    }
+}

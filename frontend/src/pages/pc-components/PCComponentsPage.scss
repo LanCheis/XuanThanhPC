@@ -1,0 +1,90 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.pc-components-page {
+    &__hero {
+        background: linear-gradient(135deg, $eco-dark 0%, #1a2538 100%);
+        padding: $eco-space-3xl 0;
+        text-align: center;
+        margin-bottom: $eco-space-2xl;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(25, 195, 125, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .eco-section-title::after {
+            display: none;
+        }
+    }
+
+    &__subtitle {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1rem;
+        margin-bottom: $eco-space-xl;
+    }
+
+    &__main {
+        display: flex;
+        gap: $eco-space-2xl;
+        padding-bottom: $eco-space-3xl;
+
+        @include responsive-tablet {
+            flex-direction: column;
+            gap: $eco-space-xl;
+        }
+    }
+
+    &__sidebar {
+        width: 280px;
+        flex-shrink: 0;
+
+        @include responsive-tablet {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+        min-width: 0; // Fix grid blowout
+    }
+
+    &__toolbar {
+        @include flex-between;
+        margin-bottom: $eco-space-lg;
+        background: $eco-surface;
+        padding: $eco-space-sm $eco-space-md;
+        border-radius: $eco-radius-md;
+        box-shadow: $eco-shadow-soft;
+
+        @include responsive-mobile {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: $eco-space-sm;
+        }
+
+        .results-count {
+            color: $eco-muted;
+            font-size: 0.95rem;
+        }
+
+        .sort-select {
+            padding: 8px 16px;
+            border: 1px solid $eco-border;
+            border-radius: $eco-radius-sm;
+            outline: none;
+            color: $eco-dark;
+            font-family: inherit;
+            cursor: pointer;
+            
+            &:focus {
+                border-color: $eco-primary;
+            }
+        }
+    }
+}

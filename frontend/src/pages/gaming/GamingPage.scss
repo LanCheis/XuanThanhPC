@@ -1,0 +1,61 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.gaming-page {
+    background: $eco-dark; // Dark background for gaming page
+    color: white;
+    min-height: 100vh;
+    padding-bottom: $eco-space-3xl;
+
+    // Override generic section title for dark mode
+    .eco-section-title {
+        color: white;
+    }
+
+    &__categories {
+        margin-bottom: $eco-space-3xl;
+    }
+
+    &__categories-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: $eco-space-lg;
+
+        @include responsive-tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include responsive-mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__featured {
+        margin-bottom: $eco-space-3xl;
+
+        // Make product cards look good on dark mode
+        .eco-product-card {
+            background: #1a2538;
+            border-color: #2d3748;
+
+            &__title {
+                color: white;
+            }
+
+            &__spec-item {
+                background: rgba(255, 255, 255, 0.1);
+                color: #cbd5e1;
+            }
+            
+            &__add-btn {
+                background: rgba(25, 195, 125, 0.2);
+                color: $eco-primary;
+
+                &:hover {
+                    background: $eco-primary;
+                    color: white;
+                }
+            }
+        }
+    }
+}

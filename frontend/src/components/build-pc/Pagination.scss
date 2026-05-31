@@ -1,0 +1,59 @@
+@import '../../styles/build-pc/variables';
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+
+  .pagination-btn {
+    padding: 8px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: $border-radius-sm;
+    background-color: $surface-color;
+    color: $text-color;
+    font-weight: 500;
+    cursor: pointer;
+    transition: $transition-smooth;
+
+    &:hover:not(:disabled) {
+      background-color: #f5f5f5;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .page-numbers {
+    display: flex;
+    gap: 8px;
+
+    .page-number {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #e0e0e0;
+      border-radius: $border-radius-sm;
+      background-color: $surface-color;
+      color: $text-color;
+      font-weight: 500;
+      cursor: pointer;
+      transition: $transition-smooth;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+
+      &.active {
+        background-color: $primary-color;
+        color: white;
+        border-color: $primary-color;
+      }
+    }
+  }
+}

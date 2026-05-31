@@ -1,0 +1,99 @@
+@import '../../styles/build-pc/variables';
+
+.product-card {
+  background-color: $surface-color;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: $transition-smooth;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-hover;
+  }
+
+  .card-image-wrapper {
+    height: 200px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &:hover .card-image {
+    transform: scale(1.05);
+  }
+
+  .card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 12px 0;
+      color: $text-color;
+      line-height: 1.4;
+    }
+
+    .card-specs {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      flex-grow: 1;
+
+      li {
+        font-size: 0.85rem;
+        color: $muted-color;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: '•';
+          color: $primary-color;
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .card-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .card-price {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #d32f2f; // Specific price color to stand out
+      }
+
+      .cta-button {
+        width: 100%;
+        padding: 10px;
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        border-radius: $border-radius-sm;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: $transition-smooth;
+
+        &:hover {
+          background-color: darken(#19C37D, 5%);
+        }
+      }
+    }
+  }
+}

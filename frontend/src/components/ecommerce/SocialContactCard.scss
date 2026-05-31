@@ -1,0 +1,76 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.social-contact-card {
+    display: flex;
+    align-items: center;
+    background: $eco-surface;
+    padding: $eco-space-md;
+    border-radius: $eco-radius-lg;
+    box-shadow: $eco-shadow-soft;
+    border: 1px solid $eco-border;
+    transition: $eco-transition-bounce;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: 4px;
+        background: var(--brand-color);
+    }
+
+    &__icon {
+        width: 48px;
+        height: 48px;
+        border-radius: $eco-radius-md;
+        background: rgba(0,0,0,0.05);
+        color: var(--brand-color);
+        @include flex-center;
+        font-weight: 700;
+        margin-right: $eco-space-md;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: $eco-dark;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            color: $eco-muted;
+        }
+    }
+
+    &__arrow {
+        margin-left: auto;
+        color: var(--brand-color);
+        font-weight: bold;
+        opacity: 0.5;
+        transition: $eco-transition-fast;
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $eco-shadow-hover;
+        border-color: var(--brand-color);
+
+        .social-contact-card__icon {
+            background: var(--brand-color);
+            color: white;
+        }
+
+        .social-contact-card__arrow {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+    }
+}

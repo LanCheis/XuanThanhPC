@@ -1,0 +1,134 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.eco-filter-sidebar {
+    background: $eco-surface;
+    border-radius: $eco-radius-lg;
+    padding: $eco-space-lg;
+    border: 1px solid $eco-border;
+    box-shadow: $eco-shadow-soft;
+    position: sticky;
+    top: 100px; // Assumes header is ~80px
+
+    &__header {
+        @include flex-between;
+        margin-bottom: $eco-space-lg;
+        padding-bottom: $eco-space-md;
+        border-bottom: 1px solid $eco-border;
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: $eco-dark;
+        }
+    }
+
+    &__clear {
+        font-size: 0.85rem;
+        color: $eco-muted;
+        transition: $eco-transition-fast;
+
+        &:hover {
+            color: $eco-primary;
+            text-decoration: underline;
+        }
+    }
+
+    &__groups {
+        display: flex;
+        flex-direction: column;
+        gap: $eco-space-md;
+    }
+}
+
+.eco-filter-group {
+    border-bottom: 1px solid $eco-border;
+    padding-bottom: $eco-space-md;
+
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    &__header {
+        @include flex-between;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 600;
+        color: $eco-text;
+        padding: $eco-space-xs 0;
+
+        svg {
+            width: 16px;
+            height: 16px;
+            transition: transform $eco-transition-normal;
+        }
+
+        &.open svg {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__content {
+        margin-top: $eco-space-sm;
+        display: flex;
+        flex-direction: column;
+        gap: $eco-space-sm;
+        animation: ecoFadeIn 0.3s ease-out forwards;
+    }
+}
+
+.eco-filter-option {
+    display: flex;
+    align-items: center;
+    gap: $eco-space-sm;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: $eco-muted;
+    transition: $eco-transition-fast;
+
+    &:hover {
+        color: $eco-dark;
+    }
+
+    input {
+        display: none;
+    }
+
+    &__custom {
+        width: 18px;
+        height: 18px;
+        border: 2px solid $eco-border;
+        border-radius: 4px;
+        position: relative;
+        transition: $eco-transition-fast;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 5px;
+            width: 4px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: $eco-transition-fast;
+        }
+    }
+
+    input:checked + &__custom {
+        background: $eco-primary;
+        border-color: $eco-primary;
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    input:checked ~ &__label {
+        color: $eco-dark;
+        font-weight: 500;
+    }
+}

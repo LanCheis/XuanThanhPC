@@ -1,0 +1,32 @@
+@import '../../styles/build-pc/variables';
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.no-products {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: $surface-color;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+
+  h3 {
+    color: $text-color;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: $muted-color;
+  }
+}

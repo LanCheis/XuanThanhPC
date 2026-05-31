@@ -1,0 +1,55 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.eco-search-bar {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    &__input {
+        width: 100%;
+        height: 56px;
+        padding: 0 56px 0 24px;
+        border-radius: $eco-radius-full;
+        border: 2px solid transparent;
+        background: $eco-surface;
+        font-size: 1.1rem;
+        color: $eco-dark;
+        box-shadow: $eco-shadow-soft;
+        transition: $eco-transition-normal;
+
+        &:focus {
+            outline: none;
+            border-color: $eco-primary;
+            box-shadow: $eco-shadow-glow;
+        }
+
+        &::placeholder {
+            color: $eco-muted;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        width: 40px;
+        height: 40px;
+        border-radius: $eco-radius-full;
+        background: $eco-primary;
+        color: $eco-surface;
+        @include flex-center;
+        transition: $eco-transition-fast;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+            background: darken(#19C37D, 5%);
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.eco-pagination {
+    @include flex-center;
+    gap: $eco-space-md;
+    margin-top: $eco-space-2xl;
+    padding-top: $eco-space-xl;
+    border-top: 1px solid $eco-border;
+
+    &__numbers {
+        display: flex;
+        gap: $eco-space-sm;
+    }
+
+    &__btn, &__number {
+        @include flex-center;
+        height: 40px;
+        min-width: 40px;
+        padding: 0 $eco-space-sm;
+        border-radius: $eco-radius-md;
+        background: $eco-surface;
+        border: 1px solid $eco-border;
+        color: $eco-text;
+        font-weight: 500;
+        transition: $eco-transition-fast;
+
+        &:not(:disabled):hover {
+            border-color: $eco-primary;
+            color: $eco-primary;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: $eco-background;
+        }
+
+        &.active {
+            background: $eco-primary;
+            color: $eco-surface;
+            border-color: $eco-primary;
+        }
+    }
+}

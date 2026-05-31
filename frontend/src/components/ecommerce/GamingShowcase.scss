@@ -1,0 +1,99 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.gaming-showcase {
+    margin-top: $eco-space-3xl;
+    margin-bottom: $eco-space-3xl;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 300px);
+        gap: $eco-space-md;
+
+        @include responsive-tablet {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 250px);
+        }
+
+        @include responsive-mobile {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 250px);
+        }
+    }
+
+    &__item {
+        position: relative;
+        border-radius: $eco-radius-lg;
+        overflow: hidden;
+        
+        // Masonry style layout for desktop
+        &.item-0 { grid-column: span 2; grid-row: span 2; } // Large main image
+        &.item-1 { grid-column: span 2; }
+        &.item-2 { grid-column: span 1; }
+        &.item-3 { grid-column: span 1; }
+
+        @include responsive-tablet {
+            &.item-0 { grid-column: span 2; grid-row: span 1; }
+            &.item-1 { grid-column: span 2; }
+            &.item-2 { grid-column: span 1; }
+            &.item-3 { grid-column: span 1; }
+        }
+
+        @include responsive-mobile {
+            &.item-0, &.item-1, &.item-2, &.item-3 { 
+                grid-column: span 1; 
+                grid-row: span 1; 
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(16, 24, 40, 0.9) 0%, transparent 60%);
+            transition: opacity 0.3s ease;
+        }
+        
+        &:hover {
+            img { transform: scale(1.05); }
+            &::after { background: linear-gradient(to top, rgba(16, 24, 40, 0.95) 0%, rgba(25, 195, 125, 0.5) 100%); }
+            
+            .gaming-showcase__info {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+
+    &__info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: $eco-space-lg;
+        z-index: 1;
+        color: white;
+        transform: translateY(20px);
+        opacity: 0.9;
+        transition: all 0.3s ease;
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: $eco-space-xs;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: $eco-space-md;
+        }
+    }
+}

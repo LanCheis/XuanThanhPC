@@ -1,0 +1,35 @@
+// Color Palette
+$eco-primary: #19C37D;
+$eco-secondary: #1E88E5;
+$eco-background: #F4FBFC;
+$eco-surface: #FFFFFF;
+$eco-dark: #101828;
+$eco-text: #161616;
+$eco-muted: #667085;
+$eco-border: #E5E7EB;
+
+// Spacing
+$eco-space-xs: 4px;
+$eco-space-sm: 8px;
+$eco-space-md: 16px;
+$eco-space-lg: 24px;
+$eco-space-xl: 32px;
+$eco-space-2xl: 48px;
+$eco-space-3xl: 64px;
+
+// Radius
+$eco-radius-sm: 4px;
+$eco-radius-md: 8px;
+$eco-radius-lg: 16px;
+$eco-radius-xl: 24px;
+$eco-radius-full: 9999px;
+
+// Shadows
+$eco-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+$eco-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
+$eco-shadow-glow: 0 0 15px rgba(25, 195, 125, 0.3);
+
+// Transitions
+$eco-transition-fast: 0.15s ease-in-out;
+$eco-transition-normal: 0.3s ease;
+$eco-transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);

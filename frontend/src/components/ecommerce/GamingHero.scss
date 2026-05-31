@@ -1,0 +1,92 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.gaming-hero {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: $eco-space-3xl;
+    border-radius: 0 0 $eco-radius-xl $eco-radius-xl;
+
+    &__background {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image: url('https://picsum.photos/seed/gaming/1920/1080');
+        background-size: cover;
+        background-position: center;
+        transform: scale(1.05);
+        animation: slowZoom 20s infinite alternate linear;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(90deg, rgba(16, 24, 40, 0.95) 0%, rgba(16, 24, 40, 0.7) 50%, transparent 100%);
+    }
+
+    &__content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        color: white;
+        padding-top: $eco-space-3xl;
+        padding-bottom: $eco-space-3xl;
+        animation: ecoSlideInLeft 0.8s ease-out forwards;
+    }
+
+    &__badge {
+        display: inline-block;
+        background: rgba(25, 195, 125, 0.2);
+        border: 1px solid rgba(25, 195, 125, 0.5);
+        color: $eco-primary;
+        padding: 6px 16px;
+        border-radius: $eco-radius-full;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: $eco-space-lg;
+        box-shadow: $eco-shadow-glow;
+    }
+
+    &__title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: $eco-space-md;
+
+        .highlight {
+            background: linear-gradient(90deg, $eco-primary, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @include responsive-mobile {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__desc {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 500px;
+        margin-bottom: $eco-space-xl;
+        line-height: 1.6;
+    }
+
+    &__actions {
+        display: flex;
+        gap: $eco-space-md;
+
+        @include responsive-mobile {
+            flex-direction: column;
+        }
+    }
+}
+
+@keyframes slowZoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.15); }
+}

@@ -1,0 +1,74 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.contact-info-card {
+    background: $eco-surface;
+    padding: $eco-space-2xl;
+    border-radius: $eco-radius-lg;
+    box-shadow: $eco-shadow-soft;
+    border: 1px solid $eco-border;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $eco-dark;
+        margin-bottom: $eco-space-xl;
+        position: relative;
+        padding-bottom: $eco-space-sm;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 40px; height: 3px;
+            background: $eco-primary;
+            border-radius: $eco-radius-full;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: $eco-space-lg;
+        margin-bottom: $eco-space-xl;
+
+        li {
+            display: flex;
+            gap: $eco-space-md;
+            align-items: flex-start;
+
+            .icon {
+                font-size: 1.5rem;
+                background: $eco-background;
+                width: 48px;
+                height: 48px;
+                @include flex-center;
+                border-radius: $eco-radius-md;
+            }
+
+            .details {
+                strong {
+                    display: block;
+                    font-size: 1.05rem;
+                    color: $eco-dark;
+                    margin-bottom: 4px;
+                }
+
+                p {
+                    font-size: 0.95rem;
+                    color: $eco-muted;
+                }
+            }
+        }
+    }
+
+    &__map {
+        margin-top: auto;
+        border-radius: $eco-radius-md;
+        overflow: hidden;
+        border: 1px solid $eco-border;
+    }
+}

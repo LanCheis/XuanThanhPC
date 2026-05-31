@@ -1,0 +1,67 @@
+@import '../../styles/ecommerce/variables';
+@import '../../styles/ecommerce/mixins';
+
+.eco-product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: $eco-space-lg;
+    
+    @include responsive-mobile {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: $eco-space-md;
+    }
+}
+
+.eco-product-empty {
+    @include flex-center;
+    flex-direction: column;
+    padding: $eco-space-3xl 0;
+    text-align: center;
+    color: $eco-muted;
+
+    svg {
+        width: 64px;
+        height: 64px;
+        margin-bottom: $eco-space-md;
+        opacity: 0.5;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        color: $eco-dark;
+        margin-bottom: $eco-space-sm;
+    }
+}
+
+.eco-product-skeleton {
+    background: $eco-surface;
+    border-radius: $eco-radius-lg;
+    padding: $eco-space-md;
+    border: 1px solid $eco-border;
+
+    .skeleton-img {
+        width: 100%;
+        padding-top: 100%;
+        background: #e2e8f0;
+        border-radius: $eco-radius-md;
+        margin-bottom: $eco-space-md;
+        animation: pulse 1.5s infinite;
+    }
+
+    .skeleton-text {
+        height: 12px;
+        background: #e2e8f0;
+        border-radius: $eco-radius-sm;
+        margin-bottom: 8px;
+        animation: pulse 1.5s infinite;
+
+        &.short { width: 40%; }
+        &.long { width: 100%; margin-top: 16px; }
+    }
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}

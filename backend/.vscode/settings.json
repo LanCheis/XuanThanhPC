@@ -1,0 +1,6 @@
+{
+    "python.defaultInterpreterPath": "/home/giahoang/dev/xuanthanhpc/backend/venv/bin/python",
+    "python.analysis.extraPaths": [
+        "/home/giahoang/dev/xuanthanhpc/backend/venv/lib/python3.14/site-packages"
+    ]
+}

@@ -1,0 +1,110 @@
+@import '../../styles/build-pc/variables';
+
+.filter-group {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 16px 0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    
+    .filter-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: $text-color;
+    }
+
+    .filter-icon {
+      color: $muted-color;
+      transition: transform 0.3s ease;
+
+      &.expanded {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .filter-options {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: slideDown 0.3s ease-out;
+
+    .filter-option {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+
+      input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+
+      .checkbox-custom {
+        height: 18px;
+        width: 18px;
+        background-color: transparent;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+        transition: $transition-smooth;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:after {
+          content: "";
+          display: none;
+          width: 4px;
+          height: 8px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+          margin-bottom: 2px;
+        }
+      }
+
+      &:hover input ~ .checkbox-custom {
+        border-color: $primary-color;
+      }
+
+      input:checked ~ .checkbox-custom {
+        background-color: $primary-color;
+        border-color: $primary-color;
+
+        &:after {
+          display: block;
+        }
+      }
+
+      .option-label {
+        font-size: 0.95rem;
+        color: $text-color;
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
